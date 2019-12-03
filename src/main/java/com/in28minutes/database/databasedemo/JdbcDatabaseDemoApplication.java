@@ -9,13 +9,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.in28minutes.database.databasedemo.entity.Person;
 import com.in28minutes.database.databasedemo.jdbc.PersonDAO;
 
-@SpringBootApplication
-public class DatabaseDemoApplication implements CommandLineRunner {
+// @SpringBootApplication
+public class JdbcDatabaseDemoApplication implements CommandLineRunner {
 
 	@Autowired
 	private PersonDAO personService;
@@ -23,11 +22,12 @@ public class DatabaseDemoApplication implements CommandLineRunner {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	public static void main(String[] args) {
-		SpringApplication.run(DatabaseDemoApplication.class, args);
+		SpringApplication.run(JdbcDatabaseDemoApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
+		logger.info("----------------- JDBC ----------------");
 		logger.info("All people: {}", personService.findAll());
 		logger.info("Person: {}", personService.findById(10001));
 
