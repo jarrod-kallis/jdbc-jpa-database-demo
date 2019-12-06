@@ -5,9 +5,13 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+
+import com.in28minutes.database.databasedemo.jpa.PersonJpaRepository;
 
 @Entity
 // @Table(name="person")
+@NamedQuery(name = PersonJpaRepository.QUERY_FIND_ALL, query = "select p from Person p")
 public class Person {
 	@Id
 	@GeneratedValue
